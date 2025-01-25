@@ -8,6 +8,7 @@
          display: flex;
          align-items: start;
          justify-content: space-between;
+         flex-wrap: wrap;
 
          h2 {
              font-size: 22px;
@@ -112,5 +113,61 @@
          display: flex;
          align-items: center;
          justify-content: space-between;
+         flex-wrap: wrap;
+
      }
+ }
+
+
+ @media (max-width: 1024px) {
+     .footer {
+padding: 20px;
+         &_group {
+
+
+             h2 {}
+
+             &_logo {
+
+
+                 h1 {}
+             }
+
+             &_nav {
+                nav{
+
+                }
+             }
+
+             &_statistic {
+                 p {}
+
+                 h4 {}
+
+             }
+
+             &_info {
+                 p {}
+
+                 nav {}
+
+                 .link {}
+             }
+
+             &_socials {
+
+
+
+                 .socials {
+
+
+                     div {}
+                 }
+             }
+         }
+
+         &_end {}
+     }
+
+
  }

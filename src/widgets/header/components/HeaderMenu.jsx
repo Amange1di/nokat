@@ -34,7 +34,7 @@ const HeaderMenu = () => {
 
   const handleMouseEnter = useCallback((name) => {
     if (timeoutId) {
-      clearTimeout(timeoutId); 
+      clearTimeout(timeoutId);
     }
     setActiveMenu(name);
   }, [timeoutId]);
@@ -42,7 +42,7 @@ const HeaderMenu = () => {
   const handleMouseLeave = useCallback(() => {
     const id = setTimeout(() => {
       setActiveMenu(null);
-    }, 300); 
+    }, 300);
     setTimeoutId(id);
   }, []);
 

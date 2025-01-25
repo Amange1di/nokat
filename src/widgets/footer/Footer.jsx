@@ -2,6 +2,7 @@ import logo from "../.././shared/img/logo.png";
 import HeaderMenu from '../header/components/HeaderMenu';
 import instagramIcon from "../.././shared/img/instagramIcon.svg";
 import ffff from "../.././shared/img/ffff.svg";
+import koz from "../.././shared/img/koz.svg";
 import "./Footer.scss"
 import { NavLink } from "react-router-dom";
 const Footer = () => {
@@ -26,11 +27,11 @@ const Footer = () => {
           <div className="footer_group_statistic">
             <h2>Статистика</h2>
             <h4>Просмотры</h4>
-            <p>124</p>
+            <p><img src={koz} alt="" />124</p>
             <h4>Посетители</h4>
-            <p>124</p>
+            <p><img src={koz} alt="" />124</p>
             <h4>Визиты</h4>
-            <p>124</p>
+            <p><img src={koz} alt="" />124</p>
           </div>
           <div className="footer_group_info">
             <h2>Информация</h2>

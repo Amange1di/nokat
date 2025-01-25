@@ -33,7 +33,7 @@ const threeDd = [
         mapUrl: "https://www.google.com/maps/embed?pb=!4v1737576699639!6m8!1m7!1sCAoSLEFGMVFpcE1sb3A3MHp3OHVNak9PY3duRS1PRFRMc0RheHZTNEdEMDZnYUw1!2m2!1d40.21560613273215!2d72.52980868869783!3f138.221612158031!4f10.538033710649898!5f0.7820865974627469",
     },
     {
-        img: threeD,
+        img: archivedTwo,
         name: "Кызыл-Туу",
         mapUrl: "https://www.google.com/maps/embed?pb=!4v1737576783597!6m8!1m7!1sCAoSLEFGMVFpcFBiOHJHX09Td2dKbjh1eDdFNWRyaFltV0V3SHlBVlo0R3FCTW5O!2m2!1d40.05013048335451!2d72.6513416941521!3f25.186073673269856!4f-4.059059455096445!5f0.7820865974627469",
     },

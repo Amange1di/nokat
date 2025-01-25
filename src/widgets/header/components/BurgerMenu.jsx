@@ -1,9 +1,77 @@
-import React from 'react'
+import { useState } from "react";
+import "../header.scss";
+import "../burgermenu.scss";
+
+import HeaderMenu from "./HeaderMenu";
+import locationIcon from "../../../shared/img/locationIcon.svg";
+import languageIcon from "../../../shared/img/languageIcon.svg";
+import phoneIcon from "../../../shared/img/phoneIcon.svg";
+import instagramIcon from "../../../shared/img/instagramIcon.svg";
+import telegramIcon from "../../../shared/img/telegramIcon.svg";
+import whatsappIcon from "../../../shared/img/whatsappIcon.svg";
+import youtubeIcon from "../../../shared/img/youtubeIcon.svg";
+import { useTranslation } from 'react-i18next';
 
 const BurgerMenu = () => {
-  return (
-    <div>BurgerMenu</div>
-  )
-}
+  const [isOpen, setIsOpen] = useState(false);
 
-export default BurgerMenu
+  const { i18n } = useTranslation();
+  const handleChangeLang = ({ target: { value } }) => {
+      i18n.changeLanguage(value);
+  };
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+
+  return (
+    <div className="burger-menu">
+      <input
+        id="menu__toggle"
+        type="checkbox"
+        checked={isOpen}
+        onChange={toggleMenu}
+      />
+      <label className="menu__btn" htmlFor="menu__toggle">
+        <span></span>
+      </label>
+
+      <ul className={`menu__box ${isOpen ? 'open' : ''}`}>
+        <div className="header_top">
+          <div className="contact-info">
+            <img src={locationIcon} alt="Location" />
+            <p>ул. Центральная, 45, г. Ноокат</p>
+            <img src={languageIcon} alt="Language" />
+            <button onClick={() => handleChangeLang({ target: { value: 'ru' } })}>RU</button>
+            <span>/</span>
+            <button onClick={() => handleChangeLang({ target: { value: 'kg' } })}>KG</button>
+
+            <img src={phoneIcon} alt="Phone" />
+            <p>+996 995 898 977</p>
+
+
+            <div className="socials">
+              <a href=""><div>
+                <img src={instagramIcon} alt="Instagram" />
+              </div></a>
+              <div>
+                <a href=""> <img src={telegramIcon} alt="Telegram" /></a>
+              </div>
+              <div>
+                <a href=""> <img src={whatsappIcon} alt="WhatsApp" /></a>
+              </div>
+              <div>
+                <a href=""> <img src={youtubeIcon} alt="YouTube" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <HeaderMenu />
+
+      </ul>
+
+    </div>
+  );
+};
+
+export default BurgerMenu;
