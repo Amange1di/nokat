@@ -67,7 +67,7 @@ const threeDd = [
         name: "Кара-Кой ",
         mapUrl: "https://www.google.com/maps/embed?pb=!4v1737569549476!6m8!1m7!1sCAoSLEFGMVFpcE1EOWE3Sktzb2haRTNUT3MwNWkzT2tOWHdWa2wwQ1liTVJ1UG9P!2m2!1d40.44229808485902!2d72.80227582119277!3f343.2831737063165!4f3.076413581579601!5f0.7820865974627469",
     },
- 
+
 ];
 
 const archived = [
@@ -88,7 +88,7 @@ const buttons = [
 const Gallery = () => {
     const [activeButton, setActiveButton] = useState(buttons[0].name);
     const [currentMapUrl, setCurrentMapUrl] = useState("");
-    const { t } = useTranslation(); 
+    const { t } = useTranslation();
 
     const handleOnClick = (name) => {
         setActiveButton(name);
@@ -121,30 +121,34 @@ const Gallery = () => {
                     {activeButton === "НОВЫЕ ФОТОГРАФИИ" && (
                         <div className="photo_gallery">
                             {newFoto.map((el, index) => (
-                                <div key={index} className="photo_card">
-                                    <img src={el.img} alt={`new-foto-${index}`} />
+                                <div
+                                    style={{
+                                        backgroundImage: `url(${el.img})`,
+                                    }}
+                                    key={index} className="photo_card">
                                 </div>
                             ))}
                         </div>
                     )}
 
                     {activeButton === "3D ТУР" && (
-                        <div className="photo3d_gallery">
+                        <div className="photo_gallery">
                             {threeDd.map((el, index) => (
                                 <div
-                                    // style={{
-                                    //     backgroundImage: `url(${el.img})`,
-                                    // }}
+                                    style={{
+                                        backgroundImage: `url(${el.img})`,
+                                    }}
                                     key={index}
-                                    className="photo3_card">
-                                        <img src={el.img} alt="" />
-                                        <div>
+                                    className="photo_card3">
+                                    <div>
                                         <h4>{el.name}</h4>
-                                        <button
-                                            className="threeD"
-                                            onClick={() => openModalWithMap(el.mapUrl)}>
-                                            <img src={btn3d} alt="" />
-                                        </button>
+
+                                        <div className="btn_3d">
+                                            <button
+                                                className="threeD"
+                                                onClick={() => openModalWithMap(el.mapUrl)}>
+                                                <img src={btn3d} alt="" />
+                                            </button></div>
                                     </div>
 
                                 </div>
@@ -155,8 +159,11 @@ const Gallery = () => {
                     {activeButton === "АРХИВНЫЕ ФОТОГРАФИИ" && (
                         <div className="photo_gallery">
                             {archived.map((el, index) => (
-                                <div key={index} className="photo_card">
-                                    <img src={el.img} alt={`archived-foto-${index}`} />
+                                <div key={index}
+                                    style={{
+                                        backgroundImage: `url(${el.img})`,
+                                    }}
+                                    className="photo_card">
                                 </div>
                             ))}
                         </div>
