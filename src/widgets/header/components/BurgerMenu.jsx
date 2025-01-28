@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../header.scss";
 import "../burgermenu.scss";
 
@@ -17,13 +17,23 @@ const BurgerMenu = () => {
 
   const { i18n } = useTranslation();
   const handleChangeLang = ({ target: { value } }) => {
-      i18n.changeLanguage(value);
+    i18n.changeLanguage(value);
   };
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("menu-open");
+    } else {
+      document.body.classList.remove("menu-open");
+    }
 
+    return () => {
+      document.body.classList.remove("menu-open");
+    };
+  }, [isOpen]);
   return (
     <div className="burger-menu">
       <input
@@ -37,18 +47,20 @@ const BurgerMenu = () => {
       </label>
 
       <ul className={`menu__box ${isOpen ? 'open' : ''}`}>
-        <div className="header_top">
-          <div className="contact-info">
-            <img src={locationIcon} alt="Location" />
-            <p>ул. Центральная, 45, г. Ноокат</p>
-            <img src={languageIcon} alt="Language" />
-            <button onClick={() => handleChangeLang({ target: { value: 'ru' } })}>RU</button>
-            <span>/</span>
-            <button onClick={() => handleChangeLang({ target: { value: 'kg' } })}>KG</button>
-
-            <img src={phoneIcon} alt="Phone" />
-            <p>+996 995 898 977</p>
-
+        <div className="">
+          <div className="contact_info">
+            <div>
+              <img src={locationIcon} alt="Location" />
+              <p>ул. Центральная, 45, г. Ноокат</p></div>
+            <div>
+              <img src={phoneIcon} alt="Phone" />
+              <p>+996 995 898 977</p></div>
+            <div> 
+              <img src={languageIcon} alt="Language" />
+              <button onClick={() => handleChangeLang({ target: { value: 'ru' } })}>RU</button>
+              <span>/</span>
+              <button onClick={() => handleChangeLang({ target: { value: 'kg' } })}>KG</button>
+            </div>
 
             <div className="socials">
               <a href=""><div>

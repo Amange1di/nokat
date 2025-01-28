@@ -24,7 +24,7 @@ const HeaderTop = () => {
             <BurgerMenu />
             <div className="headerTop_right">
                 <img src={locationIcon} alt="Location" />
-                <p>ул. Центральная, 45, г. Ноокат</p>
+                <h4>ул. Центральная, 45, г. Ноокат</h4>
                 <img src={languageIcon} alt="Language" />
                 <button onClick={() => handleChangeLang({ target: { value: 'ru' } })}>RU</button>
                 <span>/</span>
